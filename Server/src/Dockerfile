@@ -1,22 +1,20 @@
 # Set base image (host OS)
 FROM python:3.8-alpine
 
-# working directory
-WORKDIR /src
+# By default, listen on port 5000
+EXPOSE 5000/tcp
 
-ENV FLASK_APP=app.py
-ENV FLASK_RUN_HOST=0.0.0.0
+# Set the working directory in the container
+WORKDIR /src
 
 # Copy the dependencies file to the working directory
 COPY requirements.txt .
 
+# Install any dependencies
 RUN pip install -r requirements.txt
 
-# add all files to the container
-COPY . /src
+# Copy the content of the local src directory to the working directory
+COPY . .
 
-# By default, listen on port 5000
-EXPOSE 5000/tcp
-
-# run the command
-CMD ["flask", "run"]
+# Specify the command to run on container start
+CMD [ "python", "./app.py" ]
