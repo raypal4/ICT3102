@@ -12,6 +12,11 @@
           "hostPort": 80,
           "protocol": "tcp",
           "containerPort": 5000
+        },
+        {
+          "hostPort": 443,
+          "protocol": "tcp",
+          "containerPort": 5000
         }
       ],
       "command": null,
@@ -54,9 +59,7 @@
   "taskRoleArn": null,
   "family": "ICT3102Team6",
   "pidMode": null,
-  "requiresCompatibilities": [
-    "EC2"
-  ],
+  "requiresCompatibilities": ["EC2"],
   "networkMode": null,
   "cpu": "300",
   "inferenceAccelerators": null,
