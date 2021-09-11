@@ -12,7 +12,7 @@
           "hostPort": 80,
           "protocol": "tcp",
           "containerPort": 5000
-        },
+        }
       ],
       "command": null,
       "linuxParameters": null,
