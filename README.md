@@ -30,6 +30,6 @@ docker run -p 5000:5000 ict3102_team6
 
 # AWS instance application links
 
-http://ec2-3-135-199-123.us-east-2.compute.amazonaws.com/
+http://ec2-3-141-36-97.us-east-2.compute.amazonaws.com
 
-http://3.135.199.123:80
+http://3.141.36.97/
