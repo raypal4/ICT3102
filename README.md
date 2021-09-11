@@ -16,7 +16,7 @@ https://www.python.org/downloads/release/python-395/
 
 # Other General Commands (Commands to push docker in AWS are in AWS EC2.)
 
-Docker build
+Docker build project
 
 ```
 docker build -t ict3102_team6 .
