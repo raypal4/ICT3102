@@ -8,11 +8,8 @@
       "logConfiguration": null,
       "entryPoint": null,
       "portMappings": [
-          {
-              "containerPort": 0,
-              "hostPort": 0,
-              "protocol": "tcp"
-          }
+          "containerPort": "5000",
+          "protocol": "tcp"
       ],
       "command": null,
       "linuxParameters": null,
