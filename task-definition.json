@@ -8,11 +8,11 @@
       "logConfiguration": null,
       "entryPoint": null,
       "portMappings": [
-        {
-          "hostPort": 80,
-          "protocol": "tcp",
-          "containerPort": 5000
-        }
+          {
+              "containerPort": 0,
+              "hostPort": 0,
+              "protocol": "tcp"
+          }
       ],
       "command": null,
       "linuxParameters": null,
@@ -52,28 +52,13 @@
   "placementConstraints": [],
   "memory": "256",
   "taskRoleArn": null,
-  "compatibilities": [
-    "EXTERNAL",
-    "EC2"
-  ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-2:640181808514:task-definition/ICT3102Team6:2",
   "family": "ICT3102Team6",
-  "requiresAttributes": [
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.ecr-auth"
-    }
-  ],
   "pidMode": null,
   "requiresCompatibilities": [
     "EC2"
   ],
   "networkMode": null,
   "cpu": "300",
-  "revision": 2,
-  "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
   "volumes": []
