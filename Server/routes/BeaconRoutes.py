@@ -12,6 +12,5 @@ def extractbeacon():
 
     locations = StaffGateway().retrieve_staff_location(staff_id, start_time, end_time)
     return jsonify({
-        "staff_id": staff_id,
-        "locations": locations
+        "location": locations
     })
