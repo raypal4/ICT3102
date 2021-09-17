@@ -1,9 +1,13 @@
 from flask import Blueprint, jsonify, request
 from datasource.StaffGateway import StaffGateway
 from datasource.BeaconGateway import BeaconGateway
-
+from domain.Thread import Thread
+from domain.ThreadController import ThreadController
 # Initialization
 router = Blueprint("BeaconRoutes", __name__)
+
+# Globals
+ThreadCounter = 0
 
 @router.route("/extractbeacon", methods=['GET', 'POST'])
 def extractBeacon():
@@ -26,4 +30,22 @@ def newBeaconDetect():
     # add new beacon detection details to db
     StaffGateway().add_new_staff_location(0, beacon_details["beaconLevel"], beacon_details["beaconLocation"])
     return f"New Beacon Detection Added" 
+
+@router.route("/starttestbeaconcreation")
+def start_test_thread():
+    global ThreadCounter
+
+    if ThreadCounter <= 0:
+        instance = Thread(1, "testBeaconDetection", ThreadController)
+        instance.start()
+        return "adding in beacons every 10 second hopefully"
+    else:
+        return "thread to creation detections already running"
+
+@router.route("/stoptestbeaconcreation")
+def stop_test_thread():
+    global ThreadCounter
+    ThreadController.stop()
+    ThreadCounter -= 1
+    return "thread stopped"
 
