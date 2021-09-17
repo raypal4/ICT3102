@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from routes import (
-    TempRoute,
+    BeaconRoutes,
 )
 
 app = Flask(__name__)
@@ -17,7 +17,7 @@ def index():
     return render_template("index.html")
 
 
-app.register_blueprint(TempRoute.router)
+app.register_blueprint(BeaconRoutes.router)
 
 if __name__ == "__main__":
    app.run(host='0.0.0.0')
