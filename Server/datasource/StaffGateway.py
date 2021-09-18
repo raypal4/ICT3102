@@ -1,5 +1,6 @@
+import pymongo
 from datasource.Database import Database
-
+import time
 class StaffGateway:
     # Static
     __StaffCollection = Database.db["staff"]
@@ -18,4 +19,21 @@ class StaffGateway:
     # add new location based on user and detected beacon to the db
     def add_new_staff_location(self, user_address, level, location):
         print(user_address, level, location)
-        pass
+        new_location = {
+            "level": level,
+            "location": location,
+            "timestamp": int(time.time())
+        }
+        collection = StaffGateway.__StaffCollection
+        try:
+            collection.find_one_and_update(
+                {"staff_id": user_address}, 
+                {"$push": 
+                    {"location": 
+                        {"$each": [new_location], "$position": 0}
+                    }
+                }
+            )
+            return True
+        except Exception as e:
+            print(e)

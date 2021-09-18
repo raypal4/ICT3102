@@ -12,7 +12,7 @@ class ThreadController:
         self.ExitThread = False
         while self.ExitThread == False:
             # temp function to simulate becaons detections
-            self.BeaconControl.new_beacon_detect("C2A628384B08")
+            self.BeaconControl.new_beacon_detect(0, "C2A628384B08")
             time.sleep(10)
 
     def stop(self):

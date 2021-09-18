@@ -25,7 +25,7 @@ def extractBeacon():
 def newBeaconDetect():
     # user_address = request.args.get('user_address')
     # beacon_address = request.args.get('beacon_address')
-    BeaconControl.new_beacon_detect("C2A628384B08")
+    BeaconControl.new_beacon_detect(0, "C2A628384B08")
     return f"New Beacon Detection Added" 
 
 ### Test routes for beacon creation ###
@@ -38,7 +38,7 @@ def start_test_thread():
         instance = Thread(1, "testBeaconDetection", ThreadController)
         instance.start()
         ThreadCounter += 1
-        return "adding in beacons every 10 second hopefully"
+        return "adding in beacons every 10 seconds"
     else:
         return "thread to creation detections already running"
 
