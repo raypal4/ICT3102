@@ -1,12 +1,18 @@
 import time
+from flask import Request
+from flask.globals import request
+from domain.BeaconControl import BeaconControl
 
 class ThreadController:
-    ExitThread = True
+    def __init__(self):
+        self.ExitThread = True
+        self.BeaconControl = BeaconControl()
 
-    def start(self, threadName):
+    def startWork(self, name):
         self.ExitThread = False
         while self.ExitThread == False:
-            print("do work")
+            # temp function to simulate becaons detections
+            self.BeaconControl.new_beacon_detect("C2A628384B08")
             time.sleep(10)
 
     def stop(self):
