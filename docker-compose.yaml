@@ -1,0 +1,37 @@
+version: "3.8"
+services:
+  app1:
+    restart: always
+    build: ./Server
+    environment:
+      - FLASK_DEBUG=1
+    ports:
+      - "5001:5000"
+    volumes:
+      - .:/code
+    expose:
+      - "5001"
+    mem_limit: 256m
+    mem_reservation: 128M
+    cpus: 0.5
+  app2:
+    restart: always
+    build: ./Server
+    environment:
+      - FLASK_DEBUG=1
+    ports:
+      - "5002:5000"
+    volumes:
+      - .:/code
+    expose:
+      - "5002"
+    mem_limit: 256m
+    mem_reservation: 128M
+    cpus: 0.5
+  nginx:
+    build: ./nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - app1
+      - app2
