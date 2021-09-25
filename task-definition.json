@@ -21,7 +21,7 @@
         {
           "hostPort": 5000,
           "protocol": "tcp",
-          "containerPort": 5001
+          "containerPort": 5000
         }
       ],
       "cpu": "100",
@@ -35,7 +35,7 @@
         {
           "hostPort": 5000,
           "protocol": "tcp",
-          "containerPort": 5002
+          "containerPort": 5001
         }
       ],
       "cpu": "100",
