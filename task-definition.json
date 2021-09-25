@@ -1,7 +1,7 @@
 {
   "containerDefinitions": [
     {
-      "name": "nginx",
+      "name": "ict3102_team6_nginx",
       "portMappings": [
         {
           "hostPort": 80,
@@ -13,17 +13,10 @@
       "memory": "256",
       "essential": true,
       "image": "640181808514.dkr.ecr.us-east-2.amazonaws.com/ict3102_team6_nginx",
-      "links": ["app1", "app2"]
+      "links": ["ict3102_team6"]
     },
     {
-      "name": "app1",
-      "cpu": "256",
-      "memory": "256",
-      "essential": true,
-      "image": "640181808514.dkr.ecr.us-east-2.amazonaws.com/ict3102_team6"
-    },
-    {
-      "name": "app2",
+      "name": "ICT3102Team6",
       "cpu": "256",
       "memory": "256",
       "essential": true,
