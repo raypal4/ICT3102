@@ -50,7 +50,7 @@
   "family": "ict3102_team6_nginx",
   "pidMode": null,
   "requiresCompatibilities": ["EC2"],
-  "networkMode": null,
+  "networkMode": "bridge",
   "cpu": "300",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
