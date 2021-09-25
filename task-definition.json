@@ -13,10 +13,10 @@
       "memory": "100",
       "essential": true,
       "image": "640181808514.dkr.ecr.us-east-2.amazonaws.com/ict3102_team6_nginx",
-      "links": ["ICT3102Team6"]
+      "links": ["app1", "app2"]
     },
     {
-      "name": "ICT3102Team6",
+      "name": "app1",
       "portMappings": [
         {
           "hostPort": 5001,
@@ -28,10 +28,24 @@
       "memory": "100",
       "essential": true,
       "image": "640181808514.dkr.ecr.us-east-2.amazonaws.com/ict3102_team6"
+    },
+    {
+      "name": "app2",
+      "portMappings": [
+        {
+          "hostPort": 5002,
+          "protocol": "tcp",
+          "containerPort": 5000
+        }
+      ],
+      "cpu": "100",
+      "memory": "100",
+      "essential": true,
+      "image": "640181808514.dkr.ecr.us-east-2.amazonaws.com/ict3102_team6"
     }
   ],
   "placementConstraints": [],
-  "memory": "256",
+  "memory": "300",
   "taskRoleArn": null,
   "family": "ICT3102Team6",
   "pidMode": null,
