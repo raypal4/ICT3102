@@ -115,3 +115,19 @@ jobs:
           service: ICT3102Team6
           cluster: ICT3102Team6
           wait-for-service-stability: true
+
+      - name: Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ${{ steps.task-def-app1.outputs.task-definition }}
+          service: ICT3102Team6
+          cluster: ICT3102Team6
+          wait-for-service-stability: true
+
+      - name: Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ${{ steps.task-def-app2.outputs.task-definition }}
+          service: ICT3102Team6
+          cluster: ICT3102Team6
+          wait-for-service-stability: true
