@@ -71,7 +71,7 @@ jobs:
 
       - name: Build, tag, and push image to Amazon ECR for NGINX repo
         working-directory: ./nginx
-        id: build-image-nginx
+        id: build-image-app
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: ict3102_team6_nginx
@@ -84,13 +84,29 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
-      - name: Fill in the new image ID in the Amazon ECS task definition
+      - name: Fill in the new image ID in the Amazon ECS task definition nginx
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: task-definition.json
           container-name: ICT3102Team6
           image: ${{ steps.build-image.outputs.image }}
+
+      - name: Fill in the new image ID in the Amazon ECS task definition for app1
+        id: task-def-app1
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: task-definition.json
+          container-name: app1
+          image: ${{ steps.build-image-app.outputs.image }}
+
+      - name: Fill in the new image ID in the Amazon ECS task definition for app2
+        id: task-def-app2
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: task-definition.json
+          container-name: app2
+          image: ${{ steps.build-image-app.outputs.image }}
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
