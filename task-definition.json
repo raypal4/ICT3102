@@ -9,16 +9,16 @@
           "containerPort": 8080
         }
       ],
-      "cpu": "256",
-      "memory": "256",
+      "cpu": "100",
+      "memory": "100",
       "essential": true,
       "image": "640181808514.dkr.ecr.us-east-2.amazonaws.com/ict3102_team6_nginx",
       "links": ["ICT3102Team6"]
     },
     {
       "name": "ICT3102Team6",
-      "cpu": "256",
-      "memory": "256",
+      "cpu": "100",
+      "memory": "100",
       "essential": true,
       "image": "640181808514.dkr.ecr.us-east-2.amazonaws.com/ict3102_team6"
     }
