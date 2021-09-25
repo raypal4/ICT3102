@@ -90,7 +90,7 @@ jobs:
         with:
           task-definition: task-definition.json
           container-name: ICT3102Team6
-          image: ${{ steps.build-image.outputs.image }}
+          image: ${{ steps.build-image-app.outputs.image }}
 
       - name: Fill in the new image ID in the Amazon ECS task definition for app1
         id: task-def-app1
@@ -98,7 +98,7 @@ jobs:
         with:
           task-definition: task-definition.json
           container-name: app1
-          image: ${{ steps.build-image-app.outputs.image }}
+          image: ${{ steps.build-image.outputs.image }}
 
       - name: Fill in the new image ID in the Amazon ECS task definition for app2
         id: task-def-app2
@@ -106,7 +106,7 @@ jobs:
         with:
           task-definition: task-definition.json
           container-name: app2
-          image: ${{ steps.build-image-app.outputs.image }}
+          image: ${{ steps.build-image.outputs.image }}
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
