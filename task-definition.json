@@ -1,7 +1,7 @@
 {
   "containerDefinitions": [
     {
-      "name": "ict3102_team6_nginx",
+      "name": "ICT3102Team6",
       "portMappings": [
         {
           "hostPort": 80,
@@ -13,10 +13,10 @@
       "memory": "100",
       "essential": true,
       "image": "640181808514.dkr.ecr.us-east-2.amazonaws.com/ict3102_team6_nginx",
-      "links": ["ICT3102Team6", "ICT3102Team6-2"]
+      "links": ["app1", "app2"]
     },
     {
-      "name": "ICT3102Team6",
+      "name": "app1",
       "portMappings": [
         {
           "hostPort": 5001,
@@ -27,11 +27,10 @@
       "cpu": "100",
       "memory": "100",
       "essential": true,
-      "image": "640181808514.dkr.ecr.us-east-2.amazonaws.com/ict3102_team6",
-      "links": ["ict3102_team6_nginx"]
+      "image": "640181808514.dkr.ecr.us-east-2.amazonaws.com/ict3102_team6"
     },
     {
-      "name": "ICT3102Team6-2",
+      "name": "app2",
       "portMappings": [
         {
           "hostPort": 5002,
@@ -42,8 +41,7 @@
       "cpu": "100",
       "memory": "100",
       "essential": true,
-      "image": "640181808514.dkr.ecr.us-east-2.amazonaws.com/ict3102_team6",
-      "links": ["ict3102_team6_nginx"]
+      "image": "640181808514.dkr.ecr.us-east-2.amazonaws.com/ict3102_team6"
     }
   ],
   "placementConstraints": [],
