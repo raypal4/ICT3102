@@ -23,4 +23,4 @@ app.register_blueprint(BeaconRoutes.router)
 
 if __name__ == "__main__":
     # NGINX ver TODO remove port 80
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0')
