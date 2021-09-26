@@ -4,9 +4,24 @@
 <!-- Body content -->
 {% block body %}
 
-<h1>server new change made</h1>
-
+<h1>Monitoring Page</h1>
+<div class="flex-container">
+  {% for dic in data %}
+  <div class="item">
+    <h2>Staff id: {{dic["staff_id"]}}</h2>
+    <p>Recent Locations:</p>
+    {% for item in dic["location"] %}
+    <div class="inside-item">
+      <p>level: {{item["level"]}}</p>
+      <p>Location: {{item["location"]}}</p>
+      <p>Timestamp: {{item["timestamp"]}}</p>
+      <p>Rssi: {{item["rssi"]}}</p>
+      <p>mac: {{item["mac"]}}</p>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}
-
 <!-- Javascript -->
 {% block scripts %} {% endblock %}

@@ -2,6 +2,8 @@ from flask import Blueprint, jsonify, request
 from domain.Thread import Thread
 from domain.ThreadController import ThreadController
 from domain.BeaconControl import BeaconControl
+import random
+
 # Initialization
 router = Blueprint("BeaconRoutes", __name__)
 
@@ -25,7 +27,13 @@ def extractBeacon():
 def newBeaconDetect():
     # user_address = request.args.get('user_address')
     # beacon_address = request.args.get('beacon_address')
-    BeaconControl.new_beacon_detect(0, "C2A628384B08")
+    # rssi = request.args.get('rssi')
+
+    # Temp Random addtion to mock mobile device request
+    x = random.sample(set([0, 2]), 1)
+    y = random.choice(["C2A628384B08","EB73768336D9"])
+    
+    BeaconControl.new_beacon_detect(x[0], y, -20)
     return f"New Beacon Detection Added" 
 
 ### Test routes for beacon creation ###
