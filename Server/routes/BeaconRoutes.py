@@ -30,7 +30,7 @@ def newBeaconDetect():
     # rssi = request.args.get('rssi')
 
     # Temp Random addtion to mock mobile device request
-    x = random.sample(set([0, 2]), 1)
+    x = random.sample(set([0,2]), 1)
     y = random.choice(["C2A628384B08","EB73768336D9"])
     
     BeaconControl.new_beacon_detect(x[0], y, -20)

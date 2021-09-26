@@ -42,7 +42,7 @@ class StaffGateway:
                     {"location": 
                         {"$each": [new_location], "$position": 0}
                     }
-                }
+                }, upsert=True
             )
             return True
         except Exception as e:
