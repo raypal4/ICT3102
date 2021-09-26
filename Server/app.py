@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from routes import (
     BeaconRoutes,
 )
+from domain.BeaconControl import BeaconControl
 
 app = Flask(__name__)
 # Configuration
@@ -14,10 +15,12 @@ app = Flask(
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    data = BeaconControl().retrieve_all_staff()
+    return render_template("index.html" , data=data)
 
 
 app.register_blueprint(BeaconRoutes.router)
 
 if __name__ == "__main__":
-   app.run(host='0.0.0.0', port=80)
+    # NGINX ver TODO remove port 80
+    app.run(host='0.0.0.0', port=80)
