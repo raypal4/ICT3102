@@ -25,15 +25,17 @@ def extractBeacon():
 
 @router.route("/newbeacondetect", methods=['GET','POST'])
 def newBeaconDetect():
-    # user_address = request.args.get('user_address')
-    # beacon_address = request.args.get('beacon_address')
-    # rssi = request.args.get('rssi')
+    user_address = int(request.args.get('user_address'))
+    beacon_address = request.args.get('beacon_address')
+    rssi = int(request.args.get('rssi'))
 
     # Temp Random addtion to mock mobile device request
-    x = random.sample(set([0,2]), 1)
-    y = random.choice(["C2A628384B08","EB73768336D9"])
+    # x = random.sample(set([0,2]), 1)
+    # y = random.choice(["C2A628384B08","EB73768336D9"])
+    # BeaconControl.new_beacon_detect(x[0], y, -20)
     
-    BeaconControl.new_beacon_detect(x[0], y, -20)
+    BeaconControl.new_beacon_detect(user_address, beacon_address, rssi)
+
     return f"New Beacon Detection Added" 
 
 ### Test routes for beacon creation ###
