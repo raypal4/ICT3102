@@ -8,7 +8,7 @@
           "containerPort": 80
         }
       ],
-      "cpu": 0,
+      "cpu": 128,
       "image": "640181808514.dkr.ecr.us-east-2.amazonaws.com/ict3102_team6",
       "name": "ICT3102Team6"
     }
