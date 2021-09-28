@@ -12,7 +12,7 @@
       "cpu": "100",
       "memory": "100",
       "essential": true,
-      "image": "640181808514.dkr.ecr.us-east-2.amazonaws.com/ict3102_team6_nginx",
+      "image": "640181808514.dkr.ecr.ap-southeast-1.amazonaws.com/ict3102_team6_nginx",
       "links": ["app1", "app2"]
     },
     {
@@ -27,7 +27,7 @@
       "cpu": "100",
       "memory": "100",
       "essential": true,
-      "image": "640181808514.dkr.ecr.us-east-2.amazonaws.com/ict3102_team6"
+      "image": "640181808514.dkr.ecr.ap-southeast-1.amazonaws.com/ict3102_team6"
     },
     {
       "name": "app2",
@@ -41,7 +41,7 @@
       "cpu": "100",
       "memory": "100",
       "essential": true,
-      "image": "640181808514.dkr.ecr.us-east-2.amazonaws.com/ict3102_team6"
+      "image": "640181808514.dkr.ecr.ap-southeast-1.amazonaws.com/ict3102_team6"
     }
   ],
   "placementConstraints": [],

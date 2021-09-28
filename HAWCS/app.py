@@ -6,7 +6,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 app = Flask(__name__)
 
 # insert your IP here
-ip_address = "18.118.241.73"
+ip_address = "13.212.32.71"
 # ip_address = "localhost"
 
 @app.route('/')
