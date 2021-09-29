@@ -36,12 +36,10 @@ class StaffGateway:
         }
         collection = StaffGateway.__StaffCollection
         try:
-            collection.find_one_and_update(
+            collection.update(
                 {"staff_id": user_address}, 
-                {"$push": 
-                    {"location": 
-                        {"$each": [new_location], "$position": 0}
-                    }
+                {"$set": 
+                    {"location": new_location}
                 }, upsert=True
             )
             return True
