@@ -102,8 +102,6 @@ class BeaconGateway:
         "C2BF4E1F0E2A": "Level 7 Lift Lobby",
         "C639BBBE3557": "Level 7 Lift Lobby",
         "DB0896A9CC33": "Level 7 Lift Lobby",
-        "C2A628384B08": "Team 6 Beacon 1",
-        "EB7376833609": "Team 6 Beacon 2"   
     }
 
     # retrieve beacon location based on mac address
