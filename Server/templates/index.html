@@ -10,15 +10,13 @@
   <div class="item">
     <h2>Staff id: {{dic["staff_id"]}}</h2>
     <p>Recent Locations:</p>
-    {% for item in dic["location"] %}
     <div class="inside-item">
-      <p>level: {{item["level"]}}</p>
-      <p>Location: {{item["location"]}}</p>
-      <p>Timestamp: {{item["timestamp"]}}</p>
-      <p>Rssi: {{item["rssi"]}}</p>
-      <p>mac: {{item["mac"]}}</p>
+      <p>level: {{dic["level"]}}</p>
+      <p>Location: {{dic["location"]}}</p>
+      <p>Timestamp: {{dic["timestamp"]}}</p>
+      <p>Rssi: {{dic["rssi"]}}</p>
+      <p>mac: {{dic["mac"]}}</p>
     </div>
-    {% endfor %}
   </div>
   {% endfor %}
 </div>

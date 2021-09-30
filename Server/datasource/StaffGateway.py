@@ -5,24 +5,28 @@ class StaffGateway:
     # Static
     __StaffCollection = Database.db["staff"]
 
-    # Get all staff locations 
+    # Get all staff locations withint the 24 hour period
     def retrieve_all_staff(self):
         collection = StaffGateway.__StaffCollection
-        return list(collection.find({}))
+        end_timestamp = int(time.time())
+        start_timestamp = end_timestamp - 86400 #24 hour record
+        return list(collection.find({"timestamp": {"$gte": start_timestamp, "$lte": end_timestamp }}).sort("timestamp", -1))
 
     # retrieve all locations detected within the timestamp for one user
     def retrieve_staff_location(self, id, start_time, end_time):
         collection = StaffGateway.__StaffCollection
-        allStaffVisitedLocations = collection.find_one({"staff_id": id})["location"]
-
+        allStaffVisitedLocations = collection.find({"staff_id": id})
         temp = []
         for item in allStaffVisitedLocations:
             # if timestamp is greater then the endtime, break out of the loop. Dont need to check the rest
             if int(item["timestamp"]) > end_time:
                 break
             if start_time <= int(item["timestamp"]) <= end_time:
+                item.pop('_id', None)
+                item.pop('rssi', None)
+                item.pop('mac', None)
+                item.pop('staff_id', None)
                 temp.append(item)
-
         return temp
 
     # add new location based on user and detected beacon to the db
@@ -32,17 +36,13 @@ class StaffGateway:
             "location": location,
             "timestamp": int(time.time()),
             "rssi": rssi,
-            "mac": beacon_address
+            "mac": beacon_address,
+            "staff_id": user_address
         }
         collection = StaffGateway.__StaffCollection
         try:
-            collection.update_one(
-                {"staff_id": user_address}, 
-                {"$push": 
-                    {"location": 
-                        {"$each": [new_location], "$position": 0}
-                    }
-                }, upsert=True
+            collection.insert_one(
+                new_location
             )
             return True
         except Exception as e:
