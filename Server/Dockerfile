@@ -3,6 +3,7 @@ FROM python:3.8-alpine
 
 # By default, listen on port 5000
 EXPOSE 5000/tcp
+EXPOSE 80
 
 # Set the working directory in the container
 WORKDIR /src
@@ -17,4 +18,4 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Specify the command to run on container start
-CMD flask run --host=0.0.0.0
+CMD [ "python", "./app.py" ]
