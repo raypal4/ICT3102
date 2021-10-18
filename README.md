@@ -27,7 +27,3 @@ Docker Run
 ```
 docker run -p 5000:5000 ict3102_team6
 ```
-
-# AWS instance application links
-
-http://13.212.32.71
