@@ -39,6 +39,7 @@ services:
       - app1
       - app2
   mongodb:
+    restart: always
     container_name: mongodb
     image: mongo:latest
     ports:
