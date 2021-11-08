@@ -81,7 +81,7 @@ services:
   s3:
     container_name: s3
     image: mongo
-    command: mongod --shardsvr --replSet shards1 --port 27017 --dbpath /data/db
+    command: mongod --shardsvr --replSet shards2 --port 27017 --dbpath /data/db
     ports:
       - "50003:27017"
     volumes:
@@ -94,24 +94,7 @@ services:
       - "50004:27017"
     volumes:
       - s4:/data/db
-  s5:
-    container_name: s5
-    image: mongo
-    command: mongod --shardsvr --replSet shards2 --port 27017 --dbpath /data/db
-    ports:
-      - "50005:27017"
-    volumes:
-      - s5:/data/db
-  s6:
-    container_name: s6
-    image: mongo
-    command: mongod --shardsvr --replSet shards2 --port 27017 --dbpath /data/db
-    ports:
-      - "50006:27017"
-    volumes:
-      - s6:/data/db
   mongos:
-    restart: always
     container_name: mongos
     image: mongo:latest
     command: mongos --configdb cfgrs/172.17.0.1:40001,172.17.0.1:40002,172.17.0.1:40003 --bind_ip 0.0.0.0 --port 27017
@@ -125,5 +108,3 @@ volumes:
   s2: {}
   s3: {}
   s4: {}
-  s5: {}
-  s6: {}
