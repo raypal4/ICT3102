@@ -5,9 +5,9 @@
 {% block body %}
 
 <h1>Monitoring Page</h1>
-<div class="flex-container">
+<div class="row">
   {% for dic in data %}
-  <div class="item">
+  <div class="col s3 m3 l3">
     <h2>Staff id: {{dic["staff_id"]}}</h2>
     <p>Recent Locations:</p>
     <div class="inside-item">
@@ -22,4 +22,18 @@
 </div>
 {% endblock %}
 <!-- Javascript -->
-{% block scripts %} {% endblock %}
+{% block scripts %}
+
+<script>
+
+$.ajax({
+  url: `${serverURL}/start-camera`,
+  headers: { Authorization: `Bearer ${token}` },
+  type: "GET",
+  success: function (res) {
+    console.log(res);
+  },
+});
+
+</script>
+{% endblock %}

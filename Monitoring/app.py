@@ -1,7 +1,4 @@
 from flask import Flask, render_template
-from routes import (
-    BeaconRoutes,
-)
 from waitress import serve
 
 app = Flask(__name__)
@@ -15,9 +12,8 @@ app = Flask(
 
 @app.route("/")
 def index():
-    return "API Server Started"
-
-app.register_blueprint(BeaconRoutes.router)
+    return render_template("index.html")
 
 if __name__ == "__main__":
-    serve(app, host='0.0.0.0', port=5000)
+    # NGINX ver TODO remove port 80
+    serve(app, host='0.0.0.0', port=6000)
