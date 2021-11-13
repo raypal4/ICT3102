@@ -12,7 +12,7 @@ services:
       - "4000"
     mem_limit: 500M
     mem_reservation: 64M
-    cpus: 0.1
+    cpus: 0.05
   app1:
     container_name: app1
     restart: always
@@ -57,7 +57,7 @@ services:
       - cfgsvr1:/data/dn
     mem_limit: 500M
     mem_reservation: 64M
-    cpus: 0.05
+    cpus: 0.1
   cfgsvr2:
     container_name: cfgsvr2
     image: mongo
@@ -79,7 +79,7 @@ services:
       - s1:/data/db
     mem_limit: 500M
     mem_reservation: 64M
-    cpus: 0.05
+    cpus: 0.1
   s2:
     container_name: s2
     image: mongo
@@ -90,7 +90,7 @@ services:
       - s2:/data/db
     mem_limit: 500M
     mem_reservation: 64M
-    cpus: 0.05
+    cpus: 0.1
   s3:
     container_name: s3
     image: mongo
@@ -101,7 +101,7 @@ services:
       - s3:/data/db
     mem_limit: 500M
     mem_reservation: 64M
-    cpus: 0.05
+    cpus: 0.1
   s4:
     container_name: s4
     image: mongo
@@ -112,7 +112,7 @@ services:
       - s4:/data/db
     mem_limit: 500M
     mem_reservation: 64M
-    cpus: 0.05
+    cpus: 0.1
   mongos:
     container_name: mongos
     image: mongo:latest
