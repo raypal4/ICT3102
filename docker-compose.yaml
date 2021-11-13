@@ -5,11 +5,11 @@ services:
     restart: always
     build: ./Monitoring
     ports:
-      - "6000:5000"
+      - "4000:4000"
     volumes:
       - .:/code
     expose:
-      - "6000"
+      - "4000"
     mem_limit: 1GB
     mem_reservation: 128M
     cpus: 0.1

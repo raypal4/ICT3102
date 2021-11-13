@@ -16,4 +16,4 @@ def index():
 
 if __name__ == "__main__":
     # NGINX ver TODO remove port 80
-    serve(app, host='0.0.0.0', port=5000)
+    serve(app, host='0.0.0.0', port=4000)

@@ -2,7 +2,7 @@
 FROM python:3.8-alpine
 
 # By default, listen on port 6000
-EXPOSE 6000
+EXPOSE 4000
 
 # Set the working directory in the container
 WORKDIR /src
