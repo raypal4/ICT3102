@@ -36,7 +36,7 @@ function loaddata()
       
       for (const i in data) {
         console.log(staffarray);
-        if (!staffarray.includes[data[i]["staff_id"]])
+        if (!staffarray.includes[data[i]["staff_id"].toString()])
         {
           const div = document.createElement('div');
           div.className = 'col s12 m4 l4';
@@ -52,7 +52,7 @@ function loaddata()
           </div>
           `;
           dataDiv.appendChild(div);
-          staffarray.push(data[i]["staff_id"]);
+          staffarray.push(data[i]["staff_id"].toString());
         }
       }
       
