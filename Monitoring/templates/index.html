@@ -25,11 +25,12 @@
 {% block scripts %}
 
 <script>
-
+var serverURL = window.location.href
+ 
 $.ajax({
-  url: `${serverURL}/start-camera`,
-  headers: { Authorization: `Bearer ${token}` },
+  url: `${serverURL}retrieveformonitoring`,
   type: "GET",
+  contentType: "application/json; charset=utf-8",
   success: function (res) {
     console.log(res);
   },
