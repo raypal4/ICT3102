@@ -30,6 +30,7 @@ var serverURL = `${window.location.protocol}//${window.location.hostname}`
 $.ajax({
   url: `${serverURL}/retrieveformonitoring`,
   type: "GET",
+  dataType: 'jsonp',
   contentType: "application/json; charset=utf-8",
   success: function (res) {
     console.log(res);

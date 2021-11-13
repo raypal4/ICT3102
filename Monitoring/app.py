@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from waitress import serve
+from flask_cors import CORS
 
 app = Flask(__name__)
 # Configuration
@@ -9,6 +10,7 @@ app = Flask(
     static_folder="static",
     template_folder="templates",
 )
+CORS(app)
 
 @app.route("/")
 def index():
