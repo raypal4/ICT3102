@@ -10,7 +10,7 @@ services:
       - .:/code
     expose:
       - "4000"
-    mem_limit: 500M
+    mem_limit: 100M
     mem_reservation: 64M
     cpus: 0.05
   app1:
@@ -23,7 +23,7 @@ services:
       - .:/code
     expose:
       - "5001"
-    mem_limit: 500M
+    mem_limit: 100M
     mem_reservation: 64M
     cpus: 0.05
   app2:
@@ -36,7 +36,7 @@ services:
       - .:/code
     expose:
       - "5002"
-    mem_limit: 500M
+    mem_limit: 100M
     mem_reservation: 64M
     cpus: 0.05
   nginx:
@@ -55,7 +55,7 @@ services:
       - "40001:27017"
     volumes:
       - cfgsvr1:/data/dn
-    mem_limit: 500M
+    mem_limit: 100M
     mem_reservation: 64M
     cpus: 0.1
   cfgsvr2:
@@ -77,7 +77,7 @@ services:
       - "50001:27017"
     volumes:
       - s1:/data/db
-    mem_limit: 500M
+    mem_limit: 100M
     mem_reservation: 64M
     cpus: 0.1
   s2:
@@ -88,7 +88,7 @@ services:
       - "50002:27017"
     volumes:
       - s2:/data/db
-    mem_limit: 500M
+    mem_limit: 100M
     mem_reservation: 64M
     cpus: 0.1
   s3:
@@ -99,7 +99,7 @@ services:
       - "50003:27017"
     volumes:
       - s3:/data/db
-    mem_limit: 500M
+    mem_limit: 100M
     mem_reservation: 64M
     cpus: 0.1
   s4:
@@ -110,7 +110,7 @@ services:
       - "50004:27017"
     volumes:
       - s4:/data/db
-    mem_limit: 500M
+    mem_limit: 100M
     mem_reservation: 64M
     cpus: 0.1
   mongos:
