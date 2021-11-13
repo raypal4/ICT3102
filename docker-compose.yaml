@@ -10,9 +10,9 @@ services:
       - .:/code
     expose:
       - "4000"
-    mem_limit: 100M
-    mem_reservation: 64M
-    cpus: 0.05
+    mem_limit: 25M
+    mem_reservation: 25M
+    cpus: 0.1
   app1:
     container_name: app1
     restart: always
@@ -23,9 +23,9 @@ services:
       - .:/code
     expose:
       - "5001"
-    mem_limit: 100M
-    mem_reservation: 64M
-    cpus: 0.05
+    mem_limit: 25M
+    mem_reservation: 25M
+    cpus: 0.1
   app2:
     container_name: app2
     restart: always
@@ -36,9 +36,9 @@ services:
       - .:/code
     expose:
       - "5002"
-    mem_limit: 100M
-    mem_reservation: 64M
-    cpus: 0.05
+    mem_limit: 25M
+    mem_reservation: 25M
+    cpus: 0.1
   nginx:
     container_name: nginx
     build: ./nginx
@@ -47,6 +47,9 @@ services:
     depends_on:
       - app1
       - app2
+    mem_limit: 25M
+    mem_reservation: 25M
+    cpus: 0.05
   cfgsvr1:
     container_name: cfgsvr1
     image: mongo
@@ -55,8 +58,8 @@ services:
       - "40001:27017"
     volumes:
       - cfgsvr1:/data/dn
-    mem_limit: 100M
-    mem_reservation: 64M
+    mem_limit: 128M
+    mem_reservation: 200M
     cpus: 0.1
   cfgsvr2:
     container_name: cfgsvr2
@@ -66,7 +69,7 @@ services:
       - "40002:27017"
     volumes:
       - cfgsvr2:/data/db
-    mem_limit: 500M
+    mem_limit: 100M
     mem_reservation: 64M
     cpus: 0.05
   s1:
@@ -77,8 +80,8 @@ services:
       - "50001:27017"
     volumes:
       - s1:/data/db
-    mem_limit: 100M
-    mem_reservation: 64M
+    mem_limit: 128M
+    mem_reservation: 200M
     cpus: 0.1
   s2:
     container_name: s2
@@ -88,8 +91,8 @@ services:
       - "50002:27017"
     volumes:
       - s2:/data/db
-    mem_limit: 100M
-    mem_reservation: 64M
+    mem_limit: 128M
+    mem_reservation: 200M
     cpus: 0.1
   s3:
     container_name: s3
@@ -99,8 +102,8 @@ services:
       - "50003:27017"
     volumes:
       - s3:/data/db
-    mem_limit: 100M
-    mem_reservation: 64M
+    mem_limit: 128M
+    mem_reservation: 200M
     cpus: 0.1
   s4:
     container_name: s4
@@ -110,8 +113,8 @@ services:
       - "50004:27017"
     volumes:
       - s4:/data/db
-    mem_limit: 100M
-    mem_reservation: 64M
+    mem_limit: 128M
+    mem_reservation: 200M
     cpus: 0.1
   mongos:
     container_name: mongos
@@ -119,6 +122,9 @@ services:
     command: mongos --configdb cfgrs/172.17.0.1:40001,172.17.0.1:40002 --bind_ip 0.0.0.0 --port 27017
     ports:
       - "27017:27017"
+    mem_limit: 128M
+    mem_reservation: 200M
+    cpus: 0.05
 volumes:
   cfgsvr1: {}
   cfgsvr2: {}
