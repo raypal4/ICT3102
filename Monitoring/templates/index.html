@@ -4,33 +4,21 @@
 <!-- Body content -->
 {% block body %}
 
-<h1>Monitoring Page</h1>
-<div class="row">
-  {% for dic in data %}
-  <div class="col s3 m3 l3">
-    <h2>Staff id: {{dic["staff_id"]}}</h2>
-    <p>Recent Locations:</p>
-    <div class="inside-item">
-      <p>level: {{dic["level"]}}</p>
-      <p>Location: {{dic["location"]}}</p>
-      <p>Timestamp: {{dic["timestamp"]}}</p>
-      <p>Rssi: {{dic["rssi"]}}</p>
-      <p>mac: {{dic["mac"]}}</p>
-    </div>
-  </div>
-  {% endfor %}
-</div>
+<h3>Monitoring Page</h3>
+<div id="data"class="row"></div>
+
 {% endblock %}
 <!-- Javascript -->
 {% block scripts %}
 
 <script>
-var serverURL = `${window.location.protocol}//${window.location.hostname}`
+var serverURL = `${window.location.protocol}//${window.location.hostname}`;
+var dataDiv = document.getElementById("data");
  
 $.ajax({
   url: `${serverURL}/retrieveformonitoring`,
   type: "GET",
-  "crossDomain": true,
+  crossDomain: true,
   contentType: "application/json; charset=utf-8",
   headers: {
     'Access-Control-Allow-Credentials' : true,
@@ -39,7 +27,25 @@ $.ajax({
     'Access-Control-Allow-Headers':'application/json',
   },
   success: function (res) {
-    console.log(res);
+    var data = res.data;
+    
+    for (const i in data) {
+      const div = document.createElement('div');
+      div.className = 'col s3 m3 l3';
+      div.innerHTML = `
+      <h5>Staff id: ` + data[i]["staff_id"] + `</h5>
+      <p>Recent Locations:</p>
+      <div class="inside-item">
+        <p>level: ` + data[i]["level"] + `</p>
+        <p>Location: ` + data[i]["location"] + `</p>
+        <p>Timestamp: ` + data[i]["timestamp"] + `</p>
+        <p>Rssi: ` + data[i]["rssi"] + `</p>
+        <p>mac: `+ data[i]["mac"]+ `</p>
+      </div>
+      `
+      dataDiv.appendChild(div);
+    }
+    
   },
 });
 
