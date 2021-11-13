@@ -10,7 +10,8 @@ class StaffGateway:
         collection = StaffGateway.__StaffCollection
         end_timestamp = int(time.time())
         start_timestamp = end_timestamp - 86400 #24 hour record
-        return list(collection.find({"timestamp": {"$gte": start_timestamp, "$lte": end_timestamp }}).sort("timestamp", -1))
+        all_staff = collection.find({"timestamp": {"$gte": start_timestamp, "$lte": end_timestamp }}, {"_id":0}).sort("timestamp", -1)
+        return list(all_staff)
 
     # retrieve all locations detected within the timestamp for one user
     def retrieve_staff_location(self, id, start_time, end_time):
