@@ -36,14 +36,10 @@ function loaddata()
       
       for (const i in data) {
         console.log(staffarray);
-        if (staffarray.includes[data[i]["staff_id"]])
-        {
-          staffarray.appendChild(data[i]["staff_id"]);
-        }
-        else
+        if (!staffarray.includes[data[i]["staff_id"]])
         {
           const div = document.createElement('div');
-          div.className = 'col s3 m6 l12';
+          div.className = 'col s12 m4 l4';
           div.innerHTML = `
           <h5>Staff id: ` + data[i]["staff_id"] + `</h5>
           <p>Recent Locations:</p>
@@ -56,6 +52,7 @@ function loaddata()
           </div>
           `;
           dataDiv.appendChild(div);
+          staffarray.push(data[i]["staff_id"]);
         }
       }
       
@@ -63,7 +60,7 @@ function loaddata()
   });
 }
 // every 15 min = 900000ms
-setInterval(loaddata, 1000);
+setInterval(loaddata, 900000);
 
 
 
