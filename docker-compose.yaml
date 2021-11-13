@@ -1,17 +1,17 @@
 version: "3.8"
 services:
-  monitoring:
-    container_name: monitoring
-    restart: always
-    build: ./Monitoring
-    ports:
-      - "4000:4000"
-    volumes:
-      - .:/code
-    expose:
-      - "4000"
-    mem_limit: 25M
-    cpus: 0.05
+  # monitoring:
+  #   container_name: monitoring
+  #   restart: always
+  #   build: ./Monitoring
+  #   ports:
+  #     - "4000:4000"
+  #   volumes:
+  #     - .:/code
+  #   expose:
+  #     - "4000"
+  #   mem_limit: 25M
+  #   cpus: 0.05
   app1:
     container_name: app1
     restart: always
