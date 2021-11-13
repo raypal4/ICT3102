@@ -33,8 +33,9 @@ function loaddata()
       var data = res.data;
       staffarray = [];
       dataDiv.innerHTML = '';
-
+      
       for (const i in data) {
+        console.log(staffarray);
         if (staffarray.includes[data[i]["staff_id"]])
         {
           staffarray.appendChild(data[i]["staff_id"]);
