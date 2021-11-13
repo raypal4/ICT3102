@@ -11,7 +11,7 @@ services:
     expose:
       - "4000"
     mem_limit: 25M
-    cpus: 0.1
+    cpus: 0.05
   app1:
     container_name: app1
     restart: always
@@ -23,7 +23,7 @@ services:
     expose:
       - "5001"
     mem_limit: 25M
-    cpus: 0.1
+    cpus: 0.05
   app2:
     container_name: app2
     restart: always
@@ -35,7 +35,7 @@ services:
     expose:
       - "5002"
     mem_limit: 25M
-    cpus: 0.1
+    cpus: 0.05
   nginx:
     container_name: nginx
     build: ./nginx
