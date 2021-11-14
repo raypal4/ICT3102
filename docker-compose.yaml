@@ -49,7 +49,7 @@ services:
       - app1
       - app2
     mem_limit: 25M
-    cpus: 0.05
+    cpus: 0.1
   cfgsvr1:
     container_name: cfgsvr1
     image: mongo
