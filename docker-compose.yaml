@@ -112,7 +112,7 @@ services:
     command: mongos --configdb cfgrs/172.17.0.1:40001,172.17.0.1:40002 --bind_ip 0.0.0.0 --port 27017
     ports:
       - "27017:27017"
-    mem_limit: 30M
+    mem_limit: 50M
     cpus: 0.05
   # mongo:
   #   container_name: mongo
