@@ -106,7 +106,7 @@ services:
   #     - s4:/data/db
   #   mem_limit: 100M
   #   cpus: 0.1
-  nginx:
+  nginx_mongos:
     container_name: nginx_mongos
     build: ./nginx_mongos
     ports:
