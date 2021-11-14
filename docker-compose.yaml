@@ -122,6 +122,8 @@ services:
     command: mongos --configdb cfgrs/172.17.0.1:40001,172.17.0.1:40002 --bind_ip 0.0.0.0 --port 27017
     ports:
       - "27018:27017"
+    expose:
+      - "27018"
     mem_limit: 50M
     cpus: 0.05
   mongos2:
@@ -130,6 +132,8 @@ services:
     command: mongos --configdb cfgrs/172.17.0.1:40001,172.17.0.1:40002 --bind_ip 0.0.0.0 --port 27017
     ports:
       - "27019:27017"
+    expose:
+      - "27019"
     mem_limit: 50M
     cpus: 0.05
   # mongo:
