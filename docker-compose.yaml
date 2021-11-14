@@ -23,7 +23,7 @@ services:
     expose:
       - "5001"
     environment:
-      - MONGOSCONNECTIONSTRING=mongodb://localhost:27018
+      - MONGOSCONNECTIONSTRING=mongodb://172.17.0.1:27018
     mem_limit: 100M
     cpus: 0.05
   app2:
@@ -37,7 +37,7 @@ services:
     expose:
       - "5002"
     environment:
-      - MONGOSCONNECTIONSTRING=mongodb://localhost:27019
+      - MONGOSCONNECTIONSTRING=mongodb://172.17.0.1:27019
     mem_limit: 100M
     cpus: 0.05
   nginx:
