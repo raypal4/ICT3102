@@ -25,7 +25,7 @@ services:
     environment:
       - MONGOSCONNECTIONSTRING=mongodb://172.17.0.1:27018
     mem_limit: 100M
-    cpus: 0.05
+    cpus: 0.1
   app2:
     container_name: app2
     restart: always
@@ -39,7 +39,7 @@ services:
     environment:
       - MONGOSCONNECTIONSTRING=mongodb://172.17.0.1:27019
     mem_limit: 100M
-    cpus: 0.05
+    cpus: 0.1
   nginx:
     container_name: nginx
     build: ./nginx
