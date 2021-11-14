@@ -106,12 +106,30 @@ services:
   #     - s4:/data/db
   #   mem_limit: 100M
   #   cpus: 0.1
-  mongos:
-    container_name: mongos
+  nginx:
+    container_name: nginx_mongos
+    build: ./nginx_mongos
+    ports:
+      - "27017:27017"
+    depends_on:
+      - mongos1
+      - mongos2
+    mem_limit: 25M
+    cpus: 0.05
+  mongos1:
+    container_name: mongos1
     image: mongo:latest
     command: mongos --configdb cfgrs/172.17.0.1:40001,172.17.0.1:40002 --bind_ip 0.0.0.0 --port 27017
     ports:
-      - "27017:27017"
+      - "27018:27017"
+    mem_limit: 50M
+    cpus: 0.05
+  mongos2:
+    container_name: mongos2
+    image: mongo:latest
+    command: mongos --configdb cfgrs/172.17.0.1:40001,172.17.0.1:40002 --bind_ip 0.0.0.0 --port 27017
+    ports:
+      - "27019:27017"
     mem_limit: 50M
     cpus: 0.05
   # mongo:
