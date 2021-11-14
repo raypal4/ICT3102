@@ -1,6 +1,7 @@
 import pymongo
 from pymongo import ssl_support
+import os
 
 class Database:
-    client = pymongo.MongoClient("mongodb://172.17.0.1:27017")
+    client = pymongo.MongoClient(os.environ["MONGOSCONNECTIONSTRING"])
     db = client["ICT3102"]
