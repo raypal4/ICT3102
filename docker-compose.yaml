@@ -22,6 +22,8 @@ services:
       - .:/code
     expose:
       - "5001"
+    environment:
+      - MONGOSCONNECTIONSTRING="mongodb://localhost:27018"
     mem_limit: 100M
     cpus: 0.05
   app2:
@@ -34,6 +36,8 @@ services:
       - .:/code
     expose:
       - "5002"
+    environment:
+      - MONGOSCONNECTIONSTRING="mongodb://localhost:27019"
     mem_limit: 100M
     cpus: 0.05
   nginx:
@@ -106,16 +110,6 @@ services:
   #     - s4:/data/db
   #   mem_limit: 100M
   #   cpus: 0.1
-  nginx_mongos:
-    container_name: nginx_mongos
-    build: ./nginx_mongos
-    ports:
-      - "27017:27017"
-    depends_on:
-      - mongos1
-      - mongos2
-    mem_limit: 25M
-    cpus: 0.05
   mongos1:
     container_name: mongos1
     image: mongo:latest
