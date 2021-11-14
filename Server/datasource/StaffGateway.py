@@ -5,11 +5,11 @@ class StaffGateway:
     # Static
     __StaffCollection = Database.db["staff"]
 
-    # Get all staff locations withint the 24 hour period
+    # Get all staff locations withint the 15 min period
     def retrieve_all_staff(self):
         collection = StaffGateway.__StaffCollection
         end_timestamp = int(time.time())
-        start_timestamp = end_timestamp - 86400 #24 hour record
+        start_timestamp = end_timestamp - 900 #15 min record
         all_staff = collection.find({"timestamp": {"$gte": start_timestamp, "$lte": end_timestamp }}, {"_id":0}).sort("timestamp", -1)
         return list(all_staff)
 
