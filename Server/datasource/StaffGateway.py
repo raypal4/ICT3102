@@ -10,13 +10,13 @@ class StaffGateway:
         collection = StaffGateway.__StaffCollection
         end_timestamp = int(time.time())
         start_timestamp = end_timestamp - 900 #15 min record
-        all_staff = collection.find({"timestamp": {"$gte": start_timestamp, "$lte": end_timestamp }}, {"_id":0}).sort("timestamp", -1).limit(50)
+        all_staff = collection.find({"timestamp": {"$gte": start_timestamp, "$lte": end_timestamp }}, {"_id":0}).sort("timestamp", -1)
         return list(all_staff)
 
     # retrieve all locations detected within the timestamp for one user
     def retrieve_staff_location(self, id, start_time, end_time):
         collection = StaffGateway.__StaffCollection
-        allStaffVisitedLocations = collection.find({"staff_id": id}).sort("timestamp", -1).limit(50)
+        allStaffVisitedLocations = collection.find({"staff_id": id}).sort("timestamp", -1)
         temp = []
         for item in allStaffVisitedLocations:
             # if timestamp is greater then the endtime, break out of the loop. Dont need to check the rest
