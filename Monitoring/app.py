@@ -14,11 +14,12 @@ CORS(app)
 
 @app.route("/")
 def index():
+    return "Reached Monitoring Server"
+
+@app.route("/monitoring")
+def monitoring():
     return render_template("index.html")
 
-@app.route("/error")
-def error():
-    return "Flask Servers Down"
 
 if __name__ == "__main__":
     # NGINX ver TODO remove port 80
