@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify
 from waitress import serve
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 # Configuration
@@ -21,6 +21,7 @@ def monitoring():
     return render_template("index.html")
 
 @app.route("/extractbeacon", methods=['GET', 'POST'])
+@cross_origin(origin='*')
 def error_extract():
     return jsonify({
         "res": "Request Invalid. Flask Servers are closed."
