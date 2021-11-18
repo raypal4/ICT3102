@@ -20,6 +20,12 @@ def index():
 def monitoring():
     return render_template("index.html")
 
+@app.route("/extractbeacon", methods=['GET', 'POST'])
+def error_extract():
+    return "Request Invalid. Flask Servers are closed."
+
+
+
 
 if __name__ == "__main__":
     # NGINX ver TODO remove port 80
