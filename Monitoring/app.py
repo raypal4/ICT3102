@@ -20,12 +20,12 @@ def index():
 def monitoring():
     return render_template("index.html")
 
-@app.route("/extractbeacon", methods=['GET', 'POST'])
-@cross_origin(origin='*')
-def error_extract():
-    return jsonify({
-        "res": "Request Invalid. Flask Servers are closed."
-    })
+# @app.route("/extractbeacon", methods=['GET', 'POST'])
+# @cross_origin(origin='*')
+# def error_extract():
+#     return jsonify({
+#         "res": "Request Invalid. Flask Servers are closed."
+#     })
 
 
 if __name__ == "__main__":
