@@ -16,19 +16,8 @@ class StaffGateway:
     # retrieve all locations detected within the timestamp for one user
     def retrieve_staff_location(self, id, start_time, end_time):
         collection = StaffGateway.__StaffCollection
-        allStaffVisitedLocations = collection.find({"staff_id": id}).sort("timestamp", -1)
-        temp = []
-        for item in allStaffVisitedLocations:
-            # if timestamp is greater then the endtime, break out of the loop. Dont need to check the rest
-            if int(item["timestamp"]) > end_time:
-                break
-            if start_time <= int(item["timestamp"]) <= end_time:
-                item.pop('_id', None)
-                item.pop('rssi', None)
-                item.pop('mac', None)
-                item.pop('staff_id', None)
-                temp.append(item)
-        return temp
+        allStaffVisitedLocations = collection.find({"staff_id": id, "timestamp": {"$gte": start_time, "$lte": end_time }}, {"_id":0, "rssi": 0, "mac":0, "staff_id":0}).sort("timestamp", -1)
+        return list(allStaffVisitedLocations)
 
     # add new location based on user and detected beacon to the db
     def add_new_staff_location(self, user_address, level, location, rssi, beacon_address):
