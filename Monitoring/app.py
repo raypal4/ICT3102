@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from waitress import serve
 from flask_cors import CORS
 
@@ -22,9 +22,9 @@ def monitoring():
 
 @app.route("/extractbeacon", methods=['GET', 'POST'])
 def error_extract():
-    return "Request Invalid. Flask Servers are closed."
-
-
+    return jsonify({
+        "res": "Request Invalid. Flask Servers are closed."
+    })
 
 
 if __name__ == "__main__":
