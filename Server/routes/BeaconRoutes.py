@@ -6,10 +6,9 @@ import pybreaker
 router = Blueprint("BeaconRoutes", __name__)
 
 BeaconControl = BeaconControl()
-route_breaker = pybreaker.CircuitBreaker(fail_max=5, reset_timeout=10)
+# route_breaker = pybreaker.CircuitBreaker(fail_max=5, reset_timeout=10)
 
 @router.route("/extractbeacon", methods=['GET', 'POST'])
-@route_breaker
 def extractBeacon():
     staff_id = int(request.args.get('staff_id'))
     start_time = int(request.args.get('start_time'))
@@ -22,7 +21,6 @@ def extractBeacon():
     })
 
 @router.route("/newbeacondetect", methods=['GET', 'POST'])
-@route_breaker
 def newBeaconDetect():
     user_address = int(request.args.get('user_address'))
     beacon_address = request.args.get('beacon_address')
@@ -31,7 +29,6 @@ def newBeaconDetect():
     return f"New Beacon Detection Added"
 
 @router.route("/retrieveformonitoring", methods=['GET', 'POST'])
-@route_breaker
 def retrieveForMonitoring():
     data = BeaconControl.retrieve_all_staff()
     return jsonify({
