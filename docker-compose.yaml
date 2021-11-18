@@ -59,7 +59,7 @@ services:
     volumes:
       - cfgsvr1:/data/dn
     mem_limit: 150M
-    cpus: 0.1
+    cpus: 0.05
   cfgsvr2:
     container_name: cfgsvr2
     image: mongo
@@ -69,7 +69,7 @@ services:
     volumes:
       - cfgsvr2:/data/db
     mem_limit: 150M
-    cpus: 0.1
+    cpus: 0.05
   s1:
     container_name: s1
     image: mongo
