@@ -53,7 +53,7 @@ services:
   cfgsvr1:
     container_name: cfgsvr1
     image: mongo
-    command: mongod --configsvr --replSet cfgrs --port 27017 --dbpath /data/db --wiredTigerCacheSizeGB 0.25 --nojournal
+    command: mongod --configsvr --replSet cfgrs --port 27017 --dbpath /data/db --nojournal
     ports:
       - "40001:27017"
     volumes:
@@ -63,7 +63,7 @@ services:
   s1:
     container_name: s1
     image: mongo
-    command: mongod --shardsvr --replSet shards1 --port 27017 --dbpath /data/db --wiredTigerCacheSizeGB 0.25 --nojournal
+    command: mongod --shardsvr --replSet shards1 --port 27017 --dbpath /data/db --nojournal
     ports:
       - "50001:27017"
     volumes:
@@ -73,7 +73,7 @@ services:
   s3:
     container_name: s3
     image: mongo
-    command: mongod --shardsvr --replSet shards2 --port 27017 --dbpath /data/db --wiredTigerCacheSizeGB 0.25 --nojournal
+    command: mongod --shardsvr --replSet shards2 --port 27017 --dbpath /data/db --nojournal
     ports:
       - "50003:27017"
     volumes:
