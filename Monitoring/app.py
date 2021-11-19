@@ -34,6 +34,12 @@ def error_retrieve():
         "data": "Flask servers circuit breaker open."
     })
 
+@app.route("/newbeacondetect", methods=['GET', 'POST'])
+def error_newBeaconDetect():
+    return jsonify({
+        "data": "Flask servers circuit breaker open."
+    })
+    
 if __name__ == "__main__":
     # NGINX ver TODO remove port 80
     serve(app, host='0.0.0.0', port=4000)
