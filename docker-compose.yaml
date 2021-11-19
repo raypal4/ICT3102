@@ -88,7 +88,7 @@ services:
       - "27018:27017"
     expose:
       - "27018"
-    mem_limit: 32M
+    mem_limit: 64M
     cpus: 0.05
   mongos2:
     container_name: mongos2
@@ -98,7 +98,7 @@ services:
       - "27019:27017"
     expose:
       - "27019"
-    mem_limit: 32M
+    mem_limit: 64M
     cpus: 0.05
   # mongo:
   #   container_name: mongo
