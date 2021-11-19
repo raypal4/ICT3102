@@ -24,14 +24,14 @@ def monitoring():
 @cross_origin(origin='*')
 def error_extract():
     return jsonify({
-        "error": "Request Invalid. Flask Servers circuit breaker open."
+        "data": "Request Invalid. Flask Servers circuit breaker open."
     })
 
 @app.route("/retrieveformonitoring", methods=['GET', 'POST'])
 @cross_origin(origin='*')
 def error_retrieve():
     return jsonify({
-        "error": "Request Invalid. Flask Servers circuit breaker open."
+        "data": "Request Invalid. Flask Servers circuit breaker open."
     })
 
 if __name__ == "__main__":
