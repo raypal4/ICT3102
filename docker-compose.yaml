@@ -58,18 +58,18 @@ services:
       - "40001:27017"
     volumes:
       - cfgsvr1:/data/dn
-    mem_limit: 110M
-    cpus: 0.05
-  cfgsvr2:
-    container_name: cfgsvr2
-    image: mongo
-    command: mongod --configsvr --replSet cfgrs --port 27017 --dbpath /data/db
-    ports:
-      - "40002:27017"
-    volumes:
-      - cfgsvr2:/data/db
-    mem_limit: 110M
-    cpus: 0.05
+    mem_limit: 150M
+    cpus: 0.1
+  # cfgsvr2:
+  #   container_name: cfgsvr2
+  #   image: mongo
+  #   command: mongod --configsvr --replSet cfgrs --port 27017 --dbpath /data/db
+  #   ports:
+  #     - "40002:27017"
+  #   volumes:
+  #     - cfgsvr2:/data/db
+  #   mem_limit: 150M
+  #   cpus: 0.05
   s1:
     container_name: s1
     image: mongo
