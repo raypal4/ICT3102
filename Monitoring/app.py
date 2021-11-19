@@ -24,9 +24,15 @@ def monitoring():
 @cross_origin(origin='*')
 def error_extract():
     return jsonify({
-        "res": "Request Invalid. Flask Servers are closed."
+        "error": "Request Invalid. Flask Servers circuit breaker open."
     })
 
+@router.route("/retrieveformonitoring", methods=['GET', 'POST'])
+@cross_origin(origin='*')
+def retrieveForMonitoring():
+    return jsonify({
+        "error": "Request Invalid. Flask Servers circuit breaker open."
+    })
 
 if __name__ == "__main__":
     # NGINX ver TODO remove port 80

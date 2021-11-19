@@ -31,6 +31,12 @@ function loaddata()
     },
     success: function (res) {
       var data = res.data;
+      
+      if(data.hasOwnProperty("error"))
+      {
+          console.log("circuit breaker state is open");
+      }
+
       staffarray = [];
       dataDiv.innerHTML = '';
       
