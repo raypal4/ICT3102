@@ -25,8 +25,11 @@ def newBeaconDetect():
     user_address = int(request.args.get('user_address'))
     beacon_address = request.args.get('beacon_address')
     rssi = int(request.args.get('rssi'))
-    BeaconControl.new_beacon_detect(user_address, beacon_address, rssi)
-    return f"New Beacon Detection Added"
+    res = BeaconControl.new_beacon_detect(user_address, beacon_address, rssi)
+    if res != False:
+        return f"New Beacon Detection Added"
+    else:
+        return f"Invalid Beacon"
 
 @router.route("/retrieveformonitoring", methods=['GET', 'POST'])
 def retrieveForMonitoring():

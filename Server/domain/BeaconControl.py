@@ -14,4 +14,7 @@ class BeaconControl:
     def new_beacon_detect(self, user_address, beacon_address, rssi):
         beacon_details = BeaconGateway.get_location_details(self, beacon_address)
         # add new beacon detection details to db
-        StaffGateway.add_new_staff_location(self, user_address, beacon_details["beaconLevel"], beacon_details["beaconLocation"], rssi, beacon_address)
+        if beacon_details != False:
+            return StaffGateway.add_new_staff_location(self, user_address, beacon_details["beaconLevel"], beacon_details["beaconLocation"], rssi, beacon_address)
+        else:
+            return False
