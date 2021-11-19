@@ -36,9 +36,9 @@ function loaddata()
     success: function (res) {
       var data = res.data;
       
-      if(data === "Request Invalid. Flask Servers circuit breaker open.")
+      if(data === "Flask servers circuit breaker open.")
       {
-        cbDiv.innerHTML = "<h5>Request Invalid. Flask Servers circuit breaker open</h5>";
+        cbDiv.innerHTML = "<h5>Flask servers circuit breaker open</h5>";
       }
       else{
         staffarray = [];
