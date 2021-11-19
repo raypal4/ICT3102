@@ -24,7 +24,7 @@ services:
       - "5001"
     environment:
       - MONGOSCONNECTIONSTRING=mongodb://172.17.0.1:27018
-    mem_limit: 100M
+    mem_limit: 50M
     cpus: 0.3
   app2:
     container_name: app2
@@ -38,7 +38,7 @@ services:
       - "5002"
     environment:
       - MONGOSCONNECTIONSTRING=mongodb://172.17.0.1:27019
-    mem_limit: 100M
+    mem_limit: 50M
     cpus: 0.3
   nginx:
     container_name: nginx
@@ -58,7 +58,7 @@ services:
       - "40001:27017"
     volumes:
       - cfgsvr1:/data/dn
-    mem_limit: 150M
+    mem_limit: 100M
     cpus: 0.05
   cfgsvr2:
     container_name: cfgsvr2
@@ -68,7 +68,7 @@ services:
       - "40002:27017"
     volumes:
       - cfgsvr2:/data/db
-    mem_limit: 150M
+    mem_limit: 100M
     cpus: 0.05
   s1:
     container_name: s1
@@ -78,7 +78,7 @@ services:
       - "50001:27017"
     volumes:
       - s1:/data/db
-    mem_limit: 150M
+    mem_limit: 100M
     cpus: 0.2
   # s2:
   #   container_name: s2
@@ -98,7 +98,7 @@ services:
       - "50003:27017"
     volumes:
       - s3:/data/db
-    mem_limit: 150M
+    mem_limit: 100M
     cpus: 0.2
   # s4:
   #   container_name: s4
