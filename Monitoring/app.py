@@ -35,6 +35,7 @@ def error_retrieve():
     })
 
 @app.route("/newbeacondetect", methods=['GET', 'POST'])
+@cross_origin(origin='*')
 def error_newBeaconDetect():
     return jsonify({
         "data": "Flask servers circuit breaker open."
