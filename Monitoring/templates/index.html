@@ -5,6 +5,8 @@
 {% block body %}
 
 <h3>Monitoring Page</h3>
+<div id="cb-checker"></div>
+
 <div id="data"class="row"></div>
 
 {% endblock %}
@@ -14,6 +16,8 @@
 <script>
 var serverURL = `${window.location.protocol}//${window.location.hostname}`;
 var dataDiv = document.getElementById("data");
+var cbDiv = document.getElementById("cb-checker");
+
 var staffarray = [];
 
 function loaddata()
@@ -31,16 +35,15 @@ function loaddata()
     },
     success: function (res) {
       var data = res.data;
-
-      console.log(data);
       
       if(data === "Request Invalid. Flask Servers circuit breaker open.")
       {
-          console.log("circuit breaker state is open");
+        cbDiv.innerHTML = "<h5>Request Invalid. Flask Servers circuit breaker open</h5>";
       }
       else{
         staffarray = [];
         dataDiv.innerHTML = '';
+        cbDiv.innerHTML = '';
       
         for (const i in data) {
           if (!(staffarray.includes(data[i]["staff_id"].toString())))
