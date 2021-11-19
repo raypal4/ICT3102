@@ -27,9 +27,9 @@ def error_extract():
         "error": "Request Invalid. Flask Servers circuit breaker open."
     })
 
-@router.route("/retrieveformonitoring", methods=['GET', 'POST'])
+@app.route("/retrieveformonitoring", methods=['GET', 'POST'])
 @cross_origin(origin='*')
-def retrieveForMonitoring():
+def error_retrieve():
     return jsonify({
         "error": "Request Invalid. Flask Servers circuit breaker open."
     })
