@@ -1,47 +1,5 @@
 version: "3.8"
 services:
-  monitoring:
-    container_name: monitoring
-    restart: always
-    build: ./Monitoring
-    ports:
-      - "4000:4000"
-    volumes:
-      - .:/code
-    expose:
-      - "4000"
-    mem_limit: 32M
-    cpus: 0.05
-  app1:
-    container_name: app1
-    restart: always
-    build: ./Server
-    ports:
-      - "5001:5000"
-    volumes:
-      - .:/code
-    expose:
-      - "5001"
-    environment:
-      - MONGOSCONNECTIONSTRING=mongodb://172.17.0.1:27017
-      # - MONGOSCONNECTIONSTRING=mongodb://172.17.0.1:27018
-    mem_limit: 64M
-    cpus: 0.3
-  app2:
-    container_name: app2
-    restart: always
-    build: ./Server
-    ports:
-      - "5002:5000"
-    volumes:
-      - .:/code
-    expose:
-      - "5002"
-    environment:
-      - MONGOSCONNECTIONSTRING=mongodb://172.17.0.1:27017
-      # - MONGOSCONNECTIONSTRING=mongodb://172.17.0.1:27019
-    mem_limit: 64M
-    cpus: 0.3
   nginx:
     container_name: nginx
     build: ./nginx
@@ -52,6 +10,47 @@ services:
       - app2
     mem_limit: 32M
     cpus: 0.1
+  ## UPDATED ARCHITECTURE
+  # monitoring:
+  #   container_name: monitoring
+  #   restart: always
+  #   build: ./Monitoring
+  #   ports:
+  #     - "4000:4000"
+  #   volumes:
+  #     - .:/code
+  #   expose:
+  #     - "4000"
+  #   mem_limit: 32M
+  #   cpus: 0.05
+  # app1:
+  #   container_name: app1
+  #   restart: always
+  #   build: ./Server
+  #   ports:
+  #     - "5001:5000"
+  #   volumes:
+  #     - .:/code
+  #   expose:
+  #     - "5001"
+  #   environment:
+  #     - MONGOSCONNECTIONSTRING=mongodb://172.17.0.1:27018
+  #   mem_limit: 64M
+  #   cpus: 0.3
+  # app2:
+  #   container_name: app2
+  #   restart: always
+  #   build: ./Server
+  #   ports:
+  #     - "5002:5000"
+  #   volumes:
+  #     - .:/code
+  #   expose:
+  #     - "5002"
+  #   environment:
+  #     - MONGOSCONNECTIONSTRING=mongodb://172.17.0.1:27019
+  #   mem_limit: 64M
+  #   cpus: 0.3
   # cfgsvr1:
   #   container_name: cfgsvr1
   #   image: mongo
@@ -102,6 +101,20 @@ services:
   #   - "27019"
   # mem_limit: 64M
   # cpus: 0.05
+
+  ## OLD ARCHITECTURE
+  app1:
+    container_name: app1
+    restart: always
+    build: ./ServerOld
+    ports:
+      - "5001:5000"
+    volumes:
+      - .:/code
+    expose:
+      - "5001"
+    mem_limit: 64M
+    cpus: 0.3
   mongo:
     container_name: mongo
     image: mongo:latest
@@ -110,6 +123,8 @@ services:
       - "27017:27017"
     mem_limit: 256M
     cpus: 0.2
+
+  ## UNUSED CONTAINERS DUE TO MEMORY LIMIT
   # cfgsvr2:
   #   container_name: cfgsvr2
   #   image: mongo
