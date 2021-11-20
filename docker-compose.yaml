@@ -105,7 +105,7 @@ services:
   mongo:
     container_name: mongo
     image: mongo:latest
-    command: mongod --port 27017
+    command: mongod --port 27017 --wiredTigerCacheSizeGB 0.25
     ports:
       - "27017:27017"
     mem_limit: 256M
