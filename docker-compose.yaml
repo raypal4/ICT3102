@@ -24,6 +24,7 @@ services:
       - "5001"
     environment:
       - MONGOSCONNECTIONSTRING=mongodb://172.17.0.1:27017
+      # - MONGOSCONNECTIONSTRING=mongodb://172.17.0.1:27018
     mem_limit: 64M
     cpus: 0.3
   app2:
@@ -38,6 +39,7 @@ services:
       - "5002"
     environment:
       - MONGOSCONNECTIONSTRING=mongodb://172.17.0.1:27017
+      # - MONGOSCONNECTIONSTRING=mongodb://172.17.0.1:27019
     mem_limit: 64M
     cpus: 0.3
   nginx:
@@ -140,8 +142,8 @@ services:
   #   cpus: 0.1
 volumes:
   cfgsvr1: {}
-  cfgsvr2: {}
   s1: {}
   s3: {}
+  # cfgsvr2: {}
   # s4: {}
   # s2: {}
