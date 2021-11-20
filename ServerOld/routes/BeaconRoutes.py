@@ -1,6 +1,4 @@
 from flask import Blueprint, jsonify, request
-from domain.Thread import Thread
-from domain.ThreadController import ThreadController
 from domain.BeaconControl import BeaconControl
 import random
 
