@@ -22,4 +22,15 @@
 </div>
 {% endblock %}
 <!-- Javascript -->
-{% block scripts %} {% endblock %}
+{% block scripts %}
+<script>
+function loaddata()
+{
+  location.reload();
+}
+// every 30 seconds reload page = 30000ms
+setInterval(loaddata, 30000);
+  
+</script>
+
+{% endblock %}
