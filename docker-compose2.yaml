@@ -7,6 +7,7 @@ services:
       - "80:80"
     depends_on:
       - app1
+      - app2
 
   ## OLD ARCHITECTURE
   app1:
@@ -19,8 +20,20 @@ services:
       - .:/code
     expose:
       - "5001"
-    mem_limit: 128M
-    cpus: 0.6
+    mem_limit: 64M
+    cpus: 0.3
+  app2:
+    container_name: app2
+    restart: always
+    build: ./ServerOld
+    ports:
+      - "5002:5000"
+    volumes:
+      - .:/code
+    expose:
+      - "5002"
+    mem_limit: 64M
+    cpus: 0.3
   mongo:
     container_name: mongo
     image: mongo:latest
