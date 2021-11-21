@@ -9,7 +9,19 @@ services:
       - app1
       - app2
 
-  ## OLD ARCHITECTURE
+  ## ADJUSTED MONITORING ARCHITECTURE
+  monitoring:
+    container_name: monitoring
+    restart: always
+    build: ./Monitoring
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/code
+    expose:
+      - "4000"
+    mem_limit: 32M
+    cpus: 0.05
   app1:
     container_name: app1
     restart: always
