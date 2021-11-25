@@ -20,7 +20,7 @@ def extractBeacon():
             "location": locations
         })
     except:
-        jsonify({"location": "Invalid get params"})
+        return jsonify({"location": "Invalid get params"})
 
 
 @router.route("/newbeacondetect", methods=['GET', 'POST'])
@@ -35,7 +35,7 @@ def newBeaconDetect():
         else:
             return f"Invalid Beacon"
     except:
-        jsonify({"location": "Invalid get params"})
+        return jsonify({"location": "Invalid get params"})
 
 @router.route("/retrieveformonitoring", methods=['GET', 'POST'])
 def retrieveForMonitoring():
