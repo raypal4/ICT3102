@@ -24,14 +24,14 @@ class StaffGateway:
         return list(allStaffVisitedLocations)
 
     # add new location based on user and detected beacon to the db
-    def add_new_staff_location(self, user_address, level, location, rssi, beacon_address):
+    def add_new_staff_location(self, staff_id, level, location, rssi, beacon_address):
         new_location = {
             "level": level,
             "location": location,
             "timestamp": int(time.time()),
             "rssi": rssi,
             "mac": beacon_address,
-            "staff_id": user_address
+            "staff_id": staff_id
         }
         collection = StaffGateway.__StaffCollection
         try:

@@ -26,10 +26,10 @@ def extractBeacon():
 @router.route("/newbeacondetect", methods=['GET', 'POST'])
 def newBeaconDetect():
     try:
-        user_address = int(request.args.get('user_address'))
+        staff_id = int(request.args.get('staff_id'))
         beacon_address = request.args.get('beacon_address')
         rssi = int(request.args.get('rssi'))
-        res = BeaconControl.new_beacon_detect(user_address, beacon_address, rssi)
+        res = BeaconControl.new_beacon_detect(staff_id, beacon_address, rssi)
         if res != False:
             return f"New Beacon Detection Added"
         else:
